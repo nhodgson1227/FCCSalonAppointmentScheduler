@@ -51,7 +51,7 @@ CREATE TABLE public.appointments (
     appointment_id integer NOT NULL,
     customer_id integer,
     service_id integer,
-    "time" character varying(5) NOT NULL
+    "time" character varying(10) NOT NULL
 );
 
 
@@ -200,14 +200,14 @@ INSERT INTO public.services VALUES (4, 'Straighten');
 -- Name: appointments_appointment_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 3, true);
+SELECT pg_catalog.setval('public.appointments_appointment_id_seq', 9, true);
 
 
 --
 -- Name: customers_customer_id_seq; Type: SEQUENCE SET; Schema: public; Owner: freecodecamp
 --
 
-SELECT pg_catalog.setval('public.customers_customer_id_seq', 12, true);
+SELECT pg_catalog.setval('public.customers_customer_id_seq', 22, true);
 
 
 --

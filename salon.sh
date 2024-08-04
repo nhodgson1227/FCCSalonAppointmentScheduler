@@ -53,7 +53,7 @@ CREATE_SERVICE(){
   # insert new service request
   INSERT_SERVICE_RESULT=$($PSQL "INSERT INTO appointments(customer_id, service_id, time) VALUES('$CUSTOMER_ID', '$SERVICE_ID_SELECTED', '$SERVICE_TIME');") 
   
-  echo -e "\nI have put you down for a $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME"
+  echo -e "\nI have put you down for a $SERVICE_NAME at $SERVICE_TIME, $CUSTOMER_NAME."
 }
 
 ### --- CHECK CUSTOMER EXISTS --- ###
@@ -63,6 +63,7 @@ CHECK_CUSTOMER_EXISTS() {
 
   # Check for Customer in database
   CUSTOMER_NAME=$($PSQL "SELECT name FROM customers WHERE phone = '$CUSTOMER_PHONE'")
+  echo "$CUSTOMER_NAME"
 
   # if customer doesn't exist
   if [[ -z $CUSTOMER_NAME ]]
@@ -77,6 +78,7 @@ CHECK_CUSTOMER_EXISTS() {
 
   # get customer_id
   CUSTOMER_ID=$($PSQL "SELECT customer_id FROM customers WHERE phone='$CUSTOMER_PHONE'")
+
 }
 
 EXIT() {
